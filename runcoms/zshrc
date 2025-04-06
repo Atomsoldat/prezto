@@ -1,13 +1,23 @@
 #
 # Executes commands at the start of an interactive session.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+
+# populate env vars
+if [ -f ~/.config/shell/environment ]; then
+    . ~/.config/shell/environment
+fi
+
+# configure shell aliases
+if [ -f ~/.config/shell/aliases ]; then
+    . ~/.config/shell/aliases
+fi
+
+# hacky fix to get ALT + . behaviour from Bash back
+# https://stackoverflow.com/questions/8344699/how-to-repeat-the-last-part-of-a-previous-command
+bindkey '\e.' insert-last-word
