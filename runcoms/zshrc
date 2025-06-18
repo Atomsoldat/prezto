@@ -28,3 +28,11 @@ bindkey '\e.' insert-last-word
 # ~/.local/bin looks a bit more stupid than ~/bin but is the preferred location by the XDG directory spec
 # https://specifications.freedesktop.org/basedir-spec/latest/
 export PATH=$PATH:~/.local/bin
+
+# zsh will add a line break and a percent sign to any output that lacks a newline
+# this is intended to prevent weirdness when the prompt ends up on the same line as the output
+# but i think always having nicely looking prompts is not worth having unexpected characters in my shell output
+# this will still print the line break, but no extra character
+export PROMPT_CR
+export PROMPT_SP
+export PROMPT_EOL_MARK=''
