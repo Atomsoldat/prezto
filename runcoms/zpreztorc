@@ -54,6 +54,14 @@ zstyle ':prezto:load' pmodule \
 # Completions
 #
 
+# compinit was necessary for kubectl autocompletion
+# it apparently slows down startup, especially when loading many plugins
+# there's a way to instantly get a prompt, apparently
+# https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
+
 # Set the entries to ignore in static '/etc/hosts' for host completion.
 # zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
 #   '0.0.0.0' '127.0.0.1'
