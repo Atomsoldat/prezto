@@ -36,3 +36,6 @@ export PATH=$PATH:~/.local/bin
 export PROMPT_CR
 export PROMPT_SP
 export PROMPT_EOL_MARK=''
+
+alias renovate-config-validator='npx --yes --package renovate -- renovate-config-validator'
+alias renovate-validate='npx --yes --package renovate -- renovate-config-validator'
